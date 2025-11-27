@@ -112,6 +112,6 @@ menu:
 deploy:
    type: git
    repo: https://github.com/prothesmos/xmit.git
-   branch: main
+   branch: gh-pages
    token: $XMIT_KEY
 
