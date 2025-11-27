@@ -7,15 +7,15 @@ on:
 
 jobs:
   deploy:
-  needs: build
-  runs-on: ubuntu-latest
-  permissions:
-     contents: write
-  concurrency:
-     group: ${{ github.workflow }}-${{ github.ref }}
-     cancel-in-progress: true
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+       contents: write
+    concurrency:
+       group: ${{ github.workflow }}-${{ github.ref }}
+       cancel-in-progress: true
 
-     steps:
+    steps:
        - uses: actions/checkout@v4
        - name: Setup Node
          uses: actions/setup-node@v4
