@@ -52,8 +52,12 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
         with:
+           run: |
+              npm ci && \
+              npm run deploy
+           env:
+             XMIT_KEY: ${{ secrets.XMIT_KEY }}
            github_token: ${{ secrets.GITHUB_TOKEN }}
-           xmit_key: ${{ secrets.XMIT_KEY }}
            publish_branch: gh-pages
            publish_dir: ./public
            cname: thesmoshq.xmit.dev
