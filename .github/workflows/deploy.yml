@@ -1,0 +1,45 @@
+name: Deploy Github Page
+
+on:
+  push:
+    branches:
+       - main
+  pull_request:
+
+jobs:
+  deploy:
+  needs: build
+  runs-on: ubuntu-latest
+  permissions:
+     contents: write
+  concurrency:
+     group: ${{ github.workflow }}-${{ github.ref }}
+     steps:
+       - uses: actions/checkout@v4
+       - name: Setup Node
+         uses: actions/setup-node@v4
+         with:
+           node-version: "latest"
+       - name: Cache dependencies
+         uses: actions/cache@v4
+         with:
+           path: ~/.npm
+           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+           restore-keys: |
+             ${{ runner.os }}-node-
+       - run: npm ci
+       - run: npm run build
+       - name: Deploy to Github Pages
+         id: deployment
+         uses: peaceiris/actions-gh-pages@v4
+         if: github.ref == 'refs/heads/main'
+         with:
+           github_token: ${{ secrets.GITHUB_TOKEN }}
+           xmit_key: ${{ secrets.XMIT_KEY }}
+           publish_branch: main
+           publish_dir: ./public
+           cname: thesmoshq.xmit.dev
+           allow_empty_commit: true
+           keep_files: true
+
+

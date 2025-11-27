@@ -1,0 +1,34 @@
+{
+  "name": "sir-thesmos",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "hexo server": "npm run dev",
+    "hexo generate": "npm run generate",
+    "hexo clean": "npm run clean",
+    "hexo build": "npm run build",
+    "hexo deploy": "npm run clean && npm run build && npx xmit thesmoshq.xmit.dev"
+  },
+  "hexo": {
+    "version": "8.1.1"
+  },
+  "dependencies": {
+    "@xmit.co/xmit": "^0.4.0-0",
+    "hexo": "^8.0.0",
+    "hexo-admin": "^2.3.0",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-esbuild": "^2.0.0",
+    "hexo-generator-archive": "^2.0.0",
+    "hexo-generator-category": "^2.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-generator-readme-file": "^1.0.3",
+    "hexo-generator-tag": "^2.0.0",
+    "hexo-global-license": "^0.5.5",
+    "hexo-renderer-ejs": "^2.0.0",
+    "hexo-renderer-marked": "^7.0.0",
+    "hexo-renderer-stylus": "^3.0.1",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-landscape": "^1.0.0"
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "themes/paperwhite"]
+	path = themes/paperwhite
+	url = https://github.com/aeilot/hexo-theme-paperwhite
