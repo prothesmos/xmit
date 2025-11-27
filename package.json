@@ -8,7 +8,7 @@
     "hexo generate": "npm run generate",
     "hexo clean": "npm run clean",
     "hexo build": "npm run build",
-    "hexo deploy": "npm run clean && npm run build && npx xmit thesmoshq.xmit.dev"
+    "hexo deploy": "npm run clean && npm run build && npx xmit thesmoshq.xmit.dev && git push -u origin main"
   },
   "hexo": {
     "version": "8.1.1"
