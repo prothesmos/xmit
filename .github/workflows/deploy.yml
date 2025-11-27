@@ -4,7 +4,6 @@ on:
   push:
     branches:
        - main
-  pull_request:
 
 jobs:
   deploy:
@@ -14,6 +13,8 @@ jobs:
      contents: write
   concurrency:
      group: ${{ github.workflow }}-${{ github.ref }}
+     cancel-in-progress: true
+
      steps:
        - uses: actions/checkout@v4
        - name: Setup Node
@@ -28,11 +29,11 @@ jobs:
            restore-keys: |
              ${{ runner.os }}-node-
        - run: npm ci
-       - run: npm run build
+       - run: npx hexo deploy
        - name: Deploy to Github Pages
          id: deployment
          uses: peaceiris/actions-gh-pages@v4
-         if: github.ref == 'refs/heads/gh-pages'
+         if: github.ref == 'refs/heads/main'
          with:
            github_token: ${{ secrets.GITHUB_TOKEN }}
            xmit_key: ${{ secrets.XMIT_KEY }}

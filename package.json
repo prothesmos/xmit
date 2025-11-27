@@ -4,10 +4,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "hexo server": "npm run dev",
-    "hexo generate": "npm run build",
-    "hexo clean": "npm run clean",
-    "hexo deploy": "npm run build && npx xmit thesmoshq.xmit.dev"
+    "dev": "npx hexo dev",
+    "build": "npx hexo clean && npx hexo generate",
+    "preview": "npx hexo server",
+    "deploy": "npx hexo deploy && npx xmit thesmoshq.xmit.dev"
   },
   "hexo": {
     "version": "8.1.1"
