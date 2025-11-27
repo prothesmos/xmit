@@ -5,10 +5,9 @@
   "private": true,
   "scripts": {
     "hexo server": "npm run dev",
-    "hexo generate": "npm run generate",
+    "hexo generate": "npm run build",
     "hexo clean": "npm run clean",
-    "hexo build": "npm run build",
-    "hexo deploy": "npm run clean && npm run build && npx xmit thesmoshq.xmit.dev && git push -u origin main"
+    "hexo deploy": "npm run build && npx xmit thesmoshq.xmit.dev"
   },
   "hexo": {
     "version": "8.1.1"
@@ -17,7 +16,6 @@
     "@xmit.co/xmit": "^0.4.0-0",
     "hexo": "^8.0.0",
     "hexo-admin": "^2.3.0",
-    "hexo-deployer-git": "^4.0.0",
     "hexo-esbuild": "^2.0.0",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
