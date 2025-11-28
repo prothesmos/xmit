@@ -109,9 +109,9 @@ menu:
   blogs: /blogs/
 
 # Deployment
-# deploy:
-#    type: git
-#    repo: https://github.com/prothesmos/xmit.git
-#    branch: gh-pages
-#    token: $XMIT_KEY
+deploy:
+   type: git
+   repo: https://github.com/prothesmos/xmit.git
+   branch: gh-pages
+   token: $XMIT_KEY
 
